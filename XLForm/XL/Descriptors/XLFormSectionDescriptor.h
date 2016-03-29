@@ -38,6 +38,8 @@ typedef NS_ENUM(NSUInteger, XLFormSectionInsertMode) {
     XLFormSectionInsertModeButton = 2
 };
 
+typedef void (^WillDisplayViewBlock)(UIView* _Nonnull view);
+
 @class XLFormDescriptor;
 
 @interface XLFormSectionDescriptor : NSObject
@@ -53,6 +55,9 @@ typedef NS_ENUM(NSUInteger, XLFormSectionInsertMode) {
 @property (nonatomic, nullable) NSString * multivaluedTag;
 
 @property (weak, null_unspecified) XLFormDescriptor * formDescriptor;
+
+@property (weak, nullable) WillDisplayViewBlock displayHeaderView;
+@property (weak, nullable) WillDisplayViewBlock displayFooterView;
 
 @property (nonnull) id hidden;
 -(BOOL)isHidden;
