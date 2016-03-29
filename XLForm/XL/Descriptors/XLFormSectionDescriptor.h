@@ -56,8 +56,8 @@ typedef void (^WillDisplayViewBlock)(UIView* _Nonnull view);
 
 @property (weak, null_unspecified) XLFormDescriptor * formDescriptor;
 
-@property (weak, nullable) WillDisplayViewBlock displayHeaderView;
-@property (weak, nullable) WillDisplayViewBlock displayFooterView;
+@property (strong, nullable) WillDisplayViewBlock displayHeaderView;
+@property (strong, nullable) WillDisplayViewBlock displayFooterView;
 
 @property (nonnull) id hidden;
 -(BOOL)isHidden;
