@@ -37,6 +37,8 @@
 @class XLFormDescriptor;
 @class XLFormBaseCell;
 
+extern const CGFloat kCGFloatNull;
+
 typedef NS_ENUM(NSUInteger, XLFormRowNavigationDirection) {
     XLFormRowNavigationDirectionPrevious = 0,
     XLFormRowNavigationDirectionNext

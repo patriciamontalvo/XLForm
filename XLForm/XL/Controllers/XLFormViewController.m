@@ -30,6 +30,7 @@
 #import "XLForm.h"
 #import "NSString+XLFormAdditions.h"
 
+const CGFloat kCGFloatNull = NAN;
 
 @interface XLFormRowDescriptor(_XLFormViewController)
 
