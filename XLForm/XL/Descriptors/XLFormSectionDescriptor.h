@@ -48,6 +48,9 @@ typedef void (^WillDisplayViewBlock)(UIView* _Nonnull view);
 @property (nonatomic, nullable) NSString * footerTitle;
 @property (readonly, nonnull) NSMutableArray * formRows;
 
+@property (nonatomic, assign) CGFloat sizeHeaderView;
+@property (nonatomic, assign) CGFloat sizeFooterView;
+
 @property (readonly) XLFormSectionInsertMode sectionInsertMode;
 @property (readonly) XLFormSectionOptions sectionOptions;
 @property (nullable) XLFormRowDescriptor * multivaluedRowTemplate;

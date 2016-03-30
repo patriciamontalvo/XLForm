@@ -753,6 +753,25 @@
     return self.tableView.rowHeight;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    XLFormSectionDescriptor* descriptor = [self.form.formSections objectAtIndex:section];
+    if (descriptor.sizeHeaderView == kCGFloatNull) {
+        return UITableViewAutomaticDimension;
+    }
+    return descriptor.sizeHeaderView;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    XLFormSectionDescriptor* descriptor = [self.form.formSections objectAtIndex:section];
+    if (descriptor.sizeFooterView == kCGFloatNull) {
+        return UITableViewAutomaticDimension;
+    }
+    return descriptor.sizeFooterView;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XLFormRowDescriptor *rowDescriptor = [self.form formRowAtIndex:indexPath];

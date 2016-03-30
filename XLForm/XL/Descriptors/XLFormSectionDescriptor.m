@@ -71,6 +71,8 @@
         _hidden = @NO;
         _hidePredicateCache = @NO;
         _isDirtyHidePredicateCache = YES;
+        _sizeHeaderView = kCGFloatNull;
+        _sizeFooterView = kCGFloatNull;
         [self addObserver:self forKeyPath:@"formRows" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:0];
     }
     return self;
@@ -82,6 +84,8 @@
         _sectionInsertMode = sectionInsertMode;
         _sectionOptions = sectionOptions;
         _title = title;
+        _sizeHeaderView = kCGFloatNull;
+        _sizeFooterView = kCGFloatNull;
         if ([self canInsertUsingButton]){
             _multivaluedAddButton = [XLFormRowDescriptor formRowDescriptorWithTag:nil rowType:XLFormRowDescriptorTypeButton title:@"Add Item"];
             [_multivaluedAddButton.cellConfig setObject:@(NSTextAlignmentNatural) forKey:@"textLabel.textAlignment"];
