@@ -54,6 +54,7 @@ typedef NS_OPTIONS(NSUInteger, XLFormRowNavigationOptions) {
 @property (nonatomic) BOOL endEditingTableViewOnScroll;
 @property (nonatomic) BOOL assignFirstResponderOnShow;
 @property (nonatomic) BOOL addAsteriskToRequiredRowsTitle;
+@property (nonatomic, assign) BOOL shouldDodgeKeyboard;
 @property (getter=isDisabled) BOOL disabled;
 @property (nonatomic) XLFormRowNavigationOptions rowNavigationOptions;
 

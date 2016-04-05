@@ -514,6 +514,9 @@ const CGFloat kCGFloatNull = NAN;
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {
+    if (!self.form.shouldDodgeKeyboard) {
+        return;
+    }
     UIView * firstResponderView = [self.tableView findFirstResponder];
     UITableViewCell<XLFormDescriptorCell> * cell = [firstResponderView formDescriptorCell];
     if (cell){
@@ -540,6 +543,9 @@ const CGFloat kCGFloatNull = NAN;
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
+    if (!self.form.shouldDodgeKeyboard) {
+        return;
+    }
     UIView * firstResponderView = [self.tableView findFirstResponder];
     UITableViewCell<XLFormDescriptorCell> * cell = [firstResponderView formDescriptorCell];
     if (cell){
@@ -757,7 +763,7 @@ const CGFloat kCGFloatNull = NAN;
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     XLFormSectionDescriptor* descriptor = [self.form.formSections objectAtIndex:section];
-    if (descriptor.sizeHeaderView == kCGFloatNull) {
+    if (isnan(descriptor.sizeHeaderView)) {
         return UITableViewAutomaticDimension;
     }
     return descriptor.sizeHeaderView;
@@ -767,7 +773,7 @@ const CGFloat kCGFloatNull = NAN;
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     XLFormSectionDescriptor* descriptor = [self.form.formSections objectAtIndex:section];
-    if (descriptor.sizeFooterView == kCGFloatNull) {
+    if (isnan(descriptor.sizeFooterView)) {
         return UITableViewAutomaticDimension;
     }
     return descriptor.sizeFooterView;
