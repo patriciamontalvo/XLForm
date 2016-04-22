@@ -736,6 +736,10 @@ const CGFloat kCGFloatNull = NAN;
 
 -(void) tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
+    if ([view isKindOfClass:[UITableViewHeaderFooterView class]]) {
+        UITableViewHeaderFooterView *tableViewHF = (UITableViewHeaderFooterView*)view;
+        [[tableViewHF.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }
     XLFormSectionDescriptor* descriptor = [self.form.formSections objectAtIndex:section];
     if (descriptor.displayHeaderView) {
         descriptor.displayHeaderView(view);
@@ -744,6 +748,10 @@ const CGFloat kCGFloatNull = NAN;
 
 -(void) tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
+    if ([view isKindOfClass:[UITableViewHeaderFooterView class]]) {
+        UITableViewHeaderFooterView *tableViewHF = (UITableViewHeaderFooterView*)view;
+        [[tableViewHF.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }
     XLFormSectionDescriptor* descriptor = [self.form.formSections objectAtIndex:section];
     if (descriptor.displayFooterView) {
         descriptor.displayFooterView(view);
