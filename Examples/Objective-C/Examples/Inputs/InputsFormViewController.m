@@ -40,6 +40,7 @@ NSString *const kUrl = @"url";
 NSString *const kTextView = @"textView";
 NSString *const kNotes = @"notes";
 NSString *const kCCLast4Digits = @"ccLast4Digits";
+NSString *const kCCCreditCard = @"ccCreditCard";
 NSString *const kCCExpiryDate = @"ccExpiryDate";
 
 
@@ -120,6 +121,10 @@ NSString *const kCCExpiryDate = @"ccExpiryDate";
     // Credit Card additions
     section = [XLFormSectionDescriptor formSectionWithTitle:@"Credit Card Example"];
     [formDescriptor addFormSection:section];
+    
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:kCCCreditCard rowType:XLFormRowDescriptorTypeCreditCard title:@"Credit Card"];
+    [row.cellConfigAtConfigure setObject:@"1234 5678 9123 4567" forKey:@"textField.placeholder"];
+    [section addFormRow:row];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCCLast4Digits rowType:XLFormRowDescriptorTypeInteger title:@"Last 4 Digits"];
     row.maxLength = 4;

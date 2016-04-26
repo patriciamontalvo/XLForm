@@ -114,6 +114,7 @@ extern NSString *const XLFormRowDescriptorTypeTimeInline;
 extern NSString *const XLFormRowDescriptorTypeTwitter;
 extern NSString *const XLFormRowDescriptorTypeURL;
 extern NSString *const XLFormRowDescriptorTypeZipCode;
+extern NSString *const XLFormRowDescriptorTypeCreditCard;
 extern NSString *const XLFormRowDescriptorTypeCreditCardExpiryDate;
 
 
