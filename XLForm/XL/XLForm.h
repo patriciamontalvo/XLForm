@@ -114,6 +114,7 @@ extern NSString *const XLFormRowDescriptorTypeTimeInline;
 extern NSString *const XLFormRowDescriptorTypeTwitter;
 extern NSString *const XLFormRowDescriptorTypeURL;
 extern NSString *const XLFormRowDescriptorTypeZipCode;
+extern NSString *const XLFormRowDescriptorTypeCreditCardExpiryDate;
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)

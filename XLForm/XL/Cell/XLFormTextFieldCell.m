@@ -146,7 +146,13 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
         self.textField.keyboardType = UIKeyboardTypeDefault;
     }
-
+    else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeCreditCardExpiryDate]){
+        self.textField.keyboardType = UIKeyboardTypeNumberPad;
+        self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.rowDescriptor.maxLength = 5;
+    }
+    
     self.textLabel.text = ((self.rowDescriptor.required && self.rowDescriptor.title && self.rowDescriptor.sectionDescriptor.formDescriptor.addAsteriskToRequiredRowsTitle) ? [NSString stringWithFormat:@"%@*", self.rowDescriptor.title] : self.rowDescriptor.title);
 
     self.textField.text = self.rowDescriptor.value ? [self.rowDescriptor.value displayText] : self.rowDescriptor.noValueDisplayText;
@@ -267,6 +273,18 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (self.rowDescriptor.maxLength > 0) {
+        // Prevent crashing undo bug – see note below.
+        if (range.length + range.location > textField.text.length)
+        {
+            return NO;
+        }
+        
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength < self.rowDescriptor.maxLength + 1) ? YES : NO;
+    }
+    
     return [self.formViewController textField:textField shouldChangeCharactersInRange:range replacementString:string];
 }
 
@@ -283,6 +301,22 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
     [self.formViewController textFieldDidEndEditing:textField];
 }
 
+- (NSString *)formatCreditCardExpiry:(NSString *)text
+{
+    static NSString *previousText = @"";
+    
+    if (text.length == 2) {
+        if (previousText.length < text.length) {
+            text = [NSString stringWithFormat:@"%@/", text];
+        } else {
+            text = [text substringToIndex:1];
+        }
+    }
+    
+    previousText = text;
+    
+    return text;
+}
 
 #pragma mark - Helper
 
@@ -297,6 +331,13 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
         }
     } else {
         self.rowDescriptor.value = nil;
+    }
+    
+    if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeCreditCardExpiryDate]) {
+        NSString *formattedText = [self formatCreditCardExpiry:self.textField.text];
+        if (![formattedText isEqualToString:self.textField.text]) {
+            self.textField.text = formattedText;
+        }
     }
 }
 

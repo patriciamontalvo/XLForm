@@ -83,6 +83,7 @@
         _rowType = rowType;
         _title = title;
         _cellStyle = [rowType isEqualToString:XLFormRowDescriptorTypeButton] ? UITableViewCellStyleDefault : UITableViewCellStyleValue1;
+        _maxLength = 0;
         _validators = [NSMutableArray new];
         _cellConfig = [NSMutableDictionary dictionary];
         _cellConfigIfDisabled = [NSMutableDictionary dictionary];
@@ -101,12 +102,12 @@
 
 +(instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType
 {
-    return [[self class] formRowDescriptorWithTag:tag rowType:rowType title:nil];
+    return [XLFormRowDescriptor formRowDescriptorWithTag:tag rowType:rowType title:nil];
 }
 
 +(instancetype)formRowDescriptorWithTag:(NSString *)tag rowType:(NSString *)rowType title:(NSString *)title
 {
-    return [[[self class] alloc] initWithTag:tag rowType:rowType title:title];
+    return [[XLFormRowDescriptor alloc] initWithTag:tag rowType:rowType title:title];
 }
 
 -(XLFormBaseCell *)cellForFormController:(XLFormViewController * __unused)formController
@@ -643,3 +644,4 @@
 }
 
 @end
+
