@@ -66,4 +66,5 @@ NSString *const XLFormRowDescriptorTypeBooleanSwitch = @"booleanSwitch";
 NSString *const XLFormRowDescriptorTypeButton = @"button";
 NSString *const XLFormRowDescriptorTypeInfo = @"info";
 NSString *const XLFormRowDescriptorTypeStepCounter = @"stepCounter";
+NSString *const XLFormRowDescriptorTypeCreditCard = @"creditCard";
 NSString *const XLFormRowDescriptorTypeCreditCardExpiryDate = @"expiry";

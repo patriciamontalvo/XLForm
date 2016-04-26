@@ -146,6 +146,12 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
         self.textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
         self.textField.keyboardType = UIKeyboardTypeDefault;
     }
+    else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeCreditCard]){
+        self.textField.keyboardType = UIKeyboardTypeNumberPad;
+        self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.rowDescriptor.maxLength = 19;
+    }
     else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeCreditCardExpiryDate]){
         self.textField.keyboardType = UIKeyboardTypeNumberPad;
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -301,6 +307,24 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
     [self.formViewController textFieldDidEndEditing:textField];
 }
 
+- (NSString *)formatCreditCard:(NSString *)text
+{
+    static NSString *previousText = @"";
+    
+    if (text.length == 4 || text.length == 9 || text.length == 14) {
+        if (previousText.length < text.length) {
+            text = [NSString stringWithFormat:@"%@ ", text];
+        } else {
+            text = [text substringToIndex:1];
+        }
+    }
+    
+    previousText = text;
+    
+    return text;
+}
+
+
 - (NSString *)formatCreditCardExpiry:(NSString *)text
 {
     static NSString *previousText = @"";
@@ -331,6 +355,13 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
         }
     } else {
         self.rowDescriptor.value = nil;
+    }
+    
+    if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeCreditCard]) {
+        NSString *formattedText = [self formatCreditCard:self.textField.text];
+        if (![formattedText isEqualToString:self.textField.text]) {
+            self.textField.text = formattedText;
+        }
     }
     
     if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeCreditCardExpiryDate]) {

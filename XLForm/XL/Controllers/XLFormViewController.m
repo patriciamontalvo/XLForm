@@ -250,6 +250,7 @@ const CGFloat kCGFloatNull = NAN;
                                                XLFormRowDescriptorTypeSlider : [XLFormSliderCell class],
                                                XLFormRowDescriptorTypeSelectorLeftRight : [XLFormLeftRightSelectorCell class],
                                                XLFormRowDescriptorTypeStepCounter: [XLFormStepCounterCell class],
+                                               XLFormRowDescriptorTypeCreditCard: [XLFormTextFieldCell class],
                                                XLFormRowDescriptorTypeCreditCardExpiryDate: [XLFormTextFieldCell class]
                                                } mutableCopy];
     });
