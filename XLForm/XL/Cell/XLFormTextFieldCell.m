@@ -314,9 +314,9 @@ NSString *const XLFormTextFieldLengthPercentage = @"textFieldLengthPercentage";
     if (text.length == 4 || text.length == 9 || text.length == 14) {
         if (previousText.length < text.length) {
             text = [NSString stringWithFormat:@"%@ ", text];
-        } else {
+        } /*else {
             text = [text substringToIndex:1];
-        }
+        }*/
     }
     
     previousText = text;
