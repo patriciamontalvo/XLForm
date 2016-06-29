@@ -84,28 +84,25 @@ const CGFloat kCGFloatNull = NAN;
     return self;
 }
 
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self){
-        [self defaultInitialize];
+        _form = nil;
+        _tableViewStyle = UITableViewStyleGrouped;
     }
     return self;
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self){
-        [self defaultInitialize];
+    if (self) {
+        _form = nil;
+        _tableViewStyle = UITableViewStyleGrouped;
     }
+    
     return self;
-}
-
--(void)defaultInitialize
-{
-    _form = nil;
-    _tableViewStyle = UITableViewStyleGrouped;
 }
 
 - (void)dealloc
@@ -485,6 +482,7 @@ const CGFloat kCGFloatNull = NAN;
                                                           handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+#ifndef XL_APP_EXTENSIONS
     else{
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"XLFormViewController_ValidationErrorTitle", nil)
                                                              message:error.localizedDescription
@@ -493,6 +491,7 @@ const CGFloat kCGFloatNull = NAN;
                                                    otherButtonTitles:nil];
         [alertView show];
     }
+#endif
 #endif
 }
 
@@ -626,13 +625,8 @@ const CGFloat kCGFloatNull = NAN;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XLFormRowDescriptor * rowDescriptor = [self.form formRowAtIndex:indexPath];
-    return [rowDescriptor cellForFormController:self];
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    XLFormRowDescriptor * rowDescriptor = [self.form formRowAtIndex:indexPath];
     [self updateFormRow:rowDescriptor];
+    return [rowDescriptor cellForFormController:self];
 }
 
 
@@ -763,9 +757,10 @@ const CGFloat kCGFloatNull = NAN;
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XLFormRowDescriptor *rowDescriptor = [self.form formRowAtIndex:indexPath];
-    Class cellClass = [[rowDescriptor cellForFormController:self] class];
-    if ([cellClass respondsToSelector:@selector(formDescriptorCellHeightForRowDescriptor:)]){
-        return [cellClass formDescriptorCellHeightForRowDescriptor:rowDescriptor];
+    [rowDescriptor cellForFormController:self];
+    CGFloat height = rowDescriptor.height;
+    if (height != XLFormUnspecifiedCellHeight){
+        return height;
     }
     return self.tableView.rowHeight;
 }
@@ -792,9 +787,10 @@ const CGFloat kCGFloatNull = NAN;
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XLFormRowDescriptor *rowDescriptor = [self.form formRowAtIndex:indexPath];
-    Class cellClass = [[rowDescriptor cellForFormController:self] class];
-    if ([cellClass respondsToSelector:@selector(formDescriptorCellHeightForRowDescriptor:)]){
-        return [cellClass formDescriptorCellHeightForRowDescriptor:rowDescriptor];
+    [rowDescriptor cellForFormController:self];
+    CGFloat height = rowDescriptor.height;
+    if (height != XLFormUnspecifiedCellHeight){
+        return height;
     }
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")){
         return self.tableView.estimatedRowHeight;
@@ -958,6 +954,10 @@ const CGFloat kCGFloatNull = NAN;
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+	return YES;
 }
 
 #pragma mark - UIScrollViewDelegate
