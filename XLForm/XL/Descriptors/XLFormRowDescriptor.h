@@ -44,7 +44,7 @@ typedef NS_ENUM(NSUInteger, XLFormPresentationMode) {
 };
 
 typedef void(^XLOnChangeBlock)(id __nullable oldValue,id __nullable newValue,XLFormRowDescriptor* __nonnull rowDescriptor);
-typedef void(^XLOnEndEDitingBlock)();
+typedef void(^XLOnEndEDitingBlock)(XLFormRowDescriptor* __nonnull rowDescriptor);
 
 
 @interface XLFormRowDescriptor : NSObject

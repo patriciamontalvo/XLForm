@@ -420,7 +420,7 @@ const CGFloat kCGFloatNull = NAN;
 {
     [[rowDescriptor cellForFormController:self] unhighlight];
     if (rowDescriptor.onEndEditingBlock) {
-        rowDescriptor.onEndEditingBlock();
+        rowDescriptor.onEndEditingBlock(rowDescriptor);
     }
 
 }
