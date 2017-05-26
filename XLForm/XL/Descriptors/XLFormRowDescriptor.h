@@ -44,6 +44,8 @@ typedef NS_ENUM(NSUInteger, XLFormPresentationMode) {
 };
 
 typedef void(^XLOnChangeBlock)(id __nullable oldValue,id __nullable newValue,XLFormRowDescriptor* __nonnull rowDescriptor);
+typedef void(^XLOnEndEDitingBlock)();
+
 
 @interface XLFormRowDescriptor : NSObject
 
@@ -58,6 +60,7 @@ typedef void(^XLOnChangeBlock)(id __nullable oldValue,id __nullable newValue,XLF
 @property (nonatomic) CGFloat height;
 
 @property (copy, nullable) XLOnChangeBlock onChangeBlock;
+@property (copy, nullable) XLOnEndEDitingBlock onEndEditingBlock;
 @property BOOL useValueFormatterDuringInput;
 @property (nullable) NSFormatter *valueFormatter;
 

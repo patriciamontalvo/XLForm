@@ -419,6 +419,10 @@ const CGFloat kCGFloatNull = NAN;
 -(void)endEditing:(XLFormRowDescriptor *)rowDescriptor
 {
     [[rowDescriptor cellForFormController:self] unhighlight];
+    if (rowDescriptor.onEndEditingBlock) {
+        rowDescriptor.onEndEditingBlock();
+    }
+
 }
 
 -(XLFormRowDescriptor *)formRowFormMultivaluedFormSection:(XLFormSectionDescriptor *)formSection
