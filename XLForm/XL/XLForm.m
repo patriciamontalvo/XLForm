@@ -68,3 +68,4 @@ NSString *const XLFormRowDescriptorTypeInfo = @"info";
 NSString *const XLFormRowDescriptorTypeStepCounter = @"stepCounter";
 NSString *const XLFormRowDescriptorTypeCreditCard = @"creditCard";
 NSString *const XLFormRowDescriptorTypeCreditCardExpiryDate = @"expiry";
+NSString * const XLFormRowDescriptorTypeAutoCompleteTextView = @"XLFormRowDescriptorTypeAutoCompleteTextView";

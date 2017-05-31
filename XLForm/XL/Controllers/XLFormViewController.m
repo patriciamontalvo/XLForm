@@ -29,6 +29,7 @@
 #import "UIView+XLFormAdditions.h"
 #import "XLForm.h"
 #import "NSString+XLFormAdditions.h"
+#import "AutoCompleteTextViewCell.h"
 
 const CGFloat kCGFloatNull = NAN;
 
@@ -248,7 +249,8 @@ const CGFloat kCGFloatNull = NAN;
                                                XLFormRowDescriptorTypeSelectorLeftRight : [XLFormLeftRightSelectorCell class],
                                                XLFormRowDescriptorTypeStepCounter: [XLFormStepCounterCell class],
                                                XLFormRowDescriptorTypeCreditCard: [XLFormTextFieldCell class],
-                                               XLFormRowDescriptorTypeCreditCardExpiryDate: [XLFormTextFieldCell class]
+                                               XLFormRowDescriptorTypeCreditCardExpiryDate: [XLFormTextFieldCell class],
+                                               XLFormRowDescriptorTypeAutoCompleteTextView: [AutoCompleteTextViewCell class]
                                                } mutableCopy];
     });
     return _cellClassesForRowDescriptorTypes;

@@ -116,6 +116,7 @@ extern NSString *const XLFormRowDescriptorTypeURL;
 extern NSString *const XLFormRowDescriptorTypeZipCode;
 extern NSString *const XLFormRowDescriptorTypeCreditCard;
 extern NSString *const XLFormRowDescriptorTypeCreditCardExpiryDate;
+extern NSString * const XLFormRowDescriptorTypeAutoCompleteTextView;
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
