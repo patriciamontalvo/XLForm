@@ -50,6 +50,7 @@
 		D51B8B2C19126664008C0478 /* XLFormCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D51B8B2B19126664008C0478 /* XLFormCustomCell.m */; };
 		DEA6EF911B57D6CC000F4893 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA6EF901B57D6CC000F4893 /* HTTPSessionManager.m */; };
 		DEB8235C1AD5529A00AF9FE2 /* FormattersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB8235B1AD5529A00AF9FE2 /* FormattersViewController.m */; };
+		E4633D141EDDEB800079EFE0 /* AutoCompleteTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4633D131EDDEB800079EFE0 /* AutoCompleteTextViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,8 @@
 		DEA6EF901B57D6CC000F4893 /* HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPSessionManager.m; path = Examples/Selectors/HTTPSessionManager.m; sourceTree = "<group>"; };
 		DEB8235A1AD5529A00AF9FE2 /* FormattersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormattersViewController.h; sourceTree = "<group>"; };
 		DEB8235B1AD5529A00AF9FE2 /* FormattersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormattersViewController.m; sourceTree = "<group>"; };
+		E4633D121EDDEB800079EFE0 /* AutoCompleteTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCompleteTextViewCell.h; sourceTree = "<group>"; };
+		E4633D131EDDEB800079EFE0 /* AutoCompleteTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCompleteTextViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +417,7 @@
 		3CDAFC741AB0AEE5000F75B6 /* CustomRows */ = {
 			isa = PBXGroup;
 			children = (
+				E4633D111EDDEAF60079EFE0 /* AutoComplete */,
 				BF01E9251C21F02D00BDE045 /* Inline Segmented */,
 				3C3B01D01AB741C40027CD45 /* Rating */,
 				3C3B01E31AB74AC10027CD45 /* FloatLabeledTextField */,
@@ -475,6 +479,15 @@
 			path = Examples/Formatters;
 			sourceTree = "<group>";
 		};
+		E4633D111EDDEAF60079EFE0 /* AutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				E4633D121EDDEB800079EFE0 /* AutoCompleteTextViewCell.h */,
+				E4633D131EDDEB800079EFE0 /* AutoCompleteTextViewCell.m */,
+			);
+			name = AutoComplete;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -482,12 +495,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2850C62418D0F707002B7D0A /* Build configuration list for PBXNativeTarget "XLForm" */;
 			buildPhases = (
-				EBE0335CCC7588D83B89A92A /* 📦 Check Pods Manifest.lock */,
+				EBE0335CCC7588D83B89A92A /* [CP] Check Pods Manifest.lock */,
 				2850C5F418D0F706002B7D0A /* Sources */,
 				2850C5F518D0F706002B7D0A /* Frameworks */,
 				2850C5F618D0F706002B7D0A /* Resources */,
-				32EB30E0A90A4E91864B1D3C /* 📦 Embed Pods Frameworks */,
-				DE3D12F5596780A66C6C3D4A /* 📦 Copy Pods Resources */,
+				32EB30E0A90A4E91864B1D3C /* [CP] Embed Pods Frameworks */,
+				DE3D12F5596780A66C6C3D4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -542,14 +555,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32EB30E0A90A4E91864B1D3C /* 📦 Embed Pods Frameworks */ = {
+		32EB30E0A90A4E91864B1D3C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,14 +570,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLForm/Pods-XLForm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE3D12F5596780A66C6C3D4A /* 📦 Copy Pods Resources */ = {
+		DE3D12F5596780A66C6C3D4A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,19 +585,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLForm/Pods-XLForm-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBE0335CCC7588D83B89A92A /* 📦 Check Pods Manifest.lock */ = {
+		EBE0335CCC7588D83B89A92A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -601,6 +614,7 @@
 				282EB27C1AB5FF33004A736F /* AccessoryViewFormViewController.m in Sources */,
 				BF9DB1D51AE0436600B985E7 /* BlogExampleViewController.m in Sources */,
 				2850C60818D0F706002B7D0A /* main.m in Sources */,
+				E4633D141EDDEB800079EFE0 /* AutoCompleteTextViewCell.m in Sources */,
 				D51B8B2C19126664008C0478 /* XLFormCustomCell.m in Sources */,
 				3C3B01F01AB74BDC0027CD45 /* FloatLabeledTextFieldCell.m in Sources */,
 				28DBB04118D76FDC00FB8A8B /* MultivaluedFormViewController.m in Sources */,

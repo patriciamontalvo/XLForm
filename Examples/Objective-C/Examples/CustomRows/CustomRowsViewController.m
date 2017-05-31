@@ -29,10 +29,12 @@
 #import "FloatLabeledTextFieldCell.h"
 #import "XLFormCustomCell.h"
 #import "XLFormInlineSegmentedCell.h"
+#import "AutoCompleteTextViewCell.h"
 
 static NSString * const kCustomRowFirstRatingTag = @"CustomRowFirstRatingTag";
 static NSString * const kCustomRowSecondRatingTag = @"CustomRowSecondRatingTag";
 static NSString * const kCustomRowFloatLabeledTextFieldTag = @"CustomRowFloatLabeledTextFieldTag";
+static NSString * const kCustomRowAutoCompleteTextFieldTag = @"CustomRowAutoCompleteTextFieldTag";
 static NSString * const kCustomRowWeekdays = @"CustomRowWeekdays";
 static NSString * const kCustomInline = @"kCustomInline";
 static NSString * const kCustomRowText = @"kCustomText";
@@ -77,6 +79,14 @@ static NSString * const kCustomRowText = @"kCustomText";
     [section addFormRow:row];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomRowFloatLabeledTextFieldTag rowType:XLFormRowDescriptorTypeFloatLabeledTextField title:@"Last Name"];
+    [section addFormRow:row];
+    
+    section = [XLFormSectionDescriptor formSectionWithTitle:@"AutoCompleteText"];
+    [form addFormSection:section];
+    
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomRowAutoCompleteTextFieldTag rowType:XLFormRowDescriptorTypeAutoCompleteTextView title:@"AUTOCOMPLETE"];
+    row.wordsAutocomplete = @[@"Doctor",@"Fiebre",@"Dolor de Cabeza",@"Vómitos",@"Diarrea", @"Presión Baja",@"Infarto"];
+    
     [section addFormRow:row];
     
     // Section Weekdays

@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ARAutocompleteTextView (0.1.0)
   - AXRatingView (1.0.3)
   - JVFloatLabeledTextField (1.0.2)
   - SHSPhoneComponent (2.15)
@@ -43,10 +44,11 @@ PODS:
   - XLData/RemoteDataStore (2.0.0):
     - XLData/CoreRemote
     - XLData/DataStore
-  - XLForm (3.1.2)
+  - XLForm (3.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - ARAutocompleteTextView (from `https://github.com/patriciamontalvo/ARAutocompleteTextView.git`)
   - AXRatingView (= 1.0.3)
   - JVFloatLabeledTextField (= 1.0.2)
   - SHSPhoneComponent
@@ -54,25 +56,31 @@ DEPENDENCIES:
   - XLForm (from `../../`)
 
 EXTERNAL SOURCES:
+  ARAutocompleteTextView:
+    :git: https://github.com/patriciamontalvo/ARAutocompleteTextView.git
   XLData:
     :commit: 1f9019b56242a2019c7f7e11ec4ef823c397ebcf
     :git: https://github.com/xmartlabs/XLData.git
   XLForm:
-    :path: ../../
+    :path: "../../"
 
 CHECKOUT OPTIONS:
+  ARAutocompleteTextView:
+    :commit: 21f34832f20a3e36fece010fcc212da5e483ab1c
+    :git: https://github.com/patriciamontalvo/ARAutocompleteTextView.git
   XLData:
     :commit: 1f9019b56242a2019c7f7e11ec4ef823c397ebcf
     :git: https://github.com/xmartlabs/XLData.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  ARAutocompleteTextView: 8b806eebba1fa422e5bfbcb91cf50b60a1303c3c
   AXRatingView: ccaadc1bbda99a4b7e1d556059482d2b933a9f4e
   JVFloatLabeledTextField: 58a3a32cfb800e5b224f676987e7c13abf50a14d
   SHSPhoneComponent: 4cec0653a150ad63cbc52b0c8b29ce2d3c9c26f0
   XLData: df725c6179e2e0c80bf56a1ecad9afd169707a6d
-  XLForm: 6bb3c20857e2983cf494cb8b4d666c2a24673d5e
+  XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: 80615792e859be64c95add3bb57c1596234faf95
+PODFILE CHECKSUM: c97d4fb07cdc7ab5fb5c65750fadd2da49733454
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.1

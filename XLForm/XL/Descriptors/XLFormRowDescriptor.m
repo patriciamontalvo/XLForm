@@ -278,6 +278,8 @@ CGFloat XLFormRowInitialHeight = -2;
     rowDescriptorCopy.selectorTitle = [self.selectorTitle copy];
     rowDescriptorCopy.selectorOptions = [self.selectorOptions copy];
     rowDescriptorCopy.leftRightSelectorLeftOptionSelected = [self.leftRightSelectorLeftOptionSelected copy];
+    
+    rowDescriptorCopy.wordsAutocomplete = [self.wordsAutocomplete copy];
 
     return rowDescriptorCopy;
 }

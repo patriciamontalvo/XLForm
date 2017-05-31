@@ -105,6 +105,11 @@ typedef void(^XLOnEndEDitingBlock)(XLFormRowDescriptor* __nonnull rowDescriptor)
 @property (null_unspecified) id leftRightSelectorLeftOptionSelected;
 
 
+// ===========================
+// property used for AutoCompleteTextView
+// ===========================
+@property (nullable) NSArray * wordsAutocomplete;
+
 // =====================================
 // Deprecated
 // =====================================
