@@ -9,7 +9,6 @@
 #import "AutoCompleteTextViewCell.h"
 #import <ARAutocompleteTextView/ARAutoCompleteWordsTextView.h>
 
-NSString * const XLFormRowDescriptorTypeAutoCompleteTextView = @"XLFormRowDescriptorTypeAutoCompleteTextView";
 
 @interface AutoCompleteTextViewCell () <UITextViewDelegate>{
      NSMutableArray * _dynamicCustomConstraints;
