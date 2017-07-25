@@ -30,6 +30,9 @@
 #import "XLForm.h"
 #import "NSString+XLFormAdditions.h"
 #import "AutoCompleteTextViewCell.h"
+#import "FloatLabeledTextFieldCell.h"
+
+
 
 const CGFloat kCGFloatNull = NAN;
 
@@ -250,7 +253,12 @@ const CGFloat kCGFloatNull = NAN;
                                                XLFormRowDescriptorTypeStepCounter: [XLFormStepCounterCell class],
                                                XLFormRowDescriptorTypeCreditCard: [XLFormTextFieldCell class],
                                                XLFormRowDescriptorTypeCreditCardExpiryDate: [XLFormTextFieldCell class],
-                                               XLFormRowDescriptorTypeAutoCompleteTextView: [AutoCompleteTextViewCell class]
+                                               XLFormRowDescriptorTypeAutoCompleteTextView: [AutoCompleteTextViewCell class],
+                                               XLFormRowDescriptorTypeFloatLabeledTextField: [FloatLabeledTextFieldCell class],
+                                               XLFormRowDescriptorTypeFloatLabeledEmailField: [FloatLabeledTextFieldCell class],
+                                               XLFormRowDescriptorTypeFloatLabeledPasswordField: [FloatLabeledTextFieldCell class]
+                                               
+                                               
                                                } mutableCopy];
     });
     return _cellClassesForRowDescriptorTypes;
