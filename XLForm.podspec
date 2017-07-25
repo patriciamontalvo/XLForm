@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
   s.resource = 'XLForm/XLForm.bundle'
   s.dependency 'ARAutocompleteTextView'
+  s.dependency 'JVFloatLabeledTextField'
 end
