@@ -22,7 +22,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "XLFormBaseCell.h"
+#import <XLForm/XLForm.h>
 
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledTextField;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledEmailField;

@@ -23,15 +23,8 @@
 // THE SOFTWARE.
 
 #import "FloatLabeledTextFieldCell.h"
-#import "UIView+XLFormAdditions.h"
-#import "JVFloatLabeledTextField.h"
-#import "NSObject+XLFormAdditions.h"
-
 #import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 
-NSString * const XLFormRowDescriptorTypeFloatLabeledTextField = @"XLFormRowDescriptorTypeFloatLabeledTextField";
-NSString * const XLFormRowDescriptorTypeFloatLabeledEmailField = @"XLFormRowDescriptorTypeFloatLabeledEmailField";
-NSString * const XLFormRowDescriptorTypeFloatLabeledPasswordField = @"XLFormRowDescriptorTypeFloatLabeledPasswordFiel";
 
 const static CGFloat kVMargin = 8.0f;
 const static CGFloat kJLabelFontSize = 16.0f;
@@ -51,6 +44,7 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
     [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey:XLFormRowDescriptorTypeFloatLabeledTextField];
     [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey: XLFormRowDescriptorTypeFloatLabeledEmailField];
     [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey:XLFormRowDescriptorTypeFloatLabeledPasswordField];
+    
 }
 
 -(JVFloatLabeledTextField *)floatLabeledTextField
