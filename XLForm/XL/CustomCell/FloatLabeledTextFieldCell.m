@@ -26,7 +26,6 @@
 #import "UIView+XLFormAdditions.h"
 #import "JVFloatLabeledTextField.h"
 #import "NSObject+XLFormAdditions.h"
-#import "UIColor+base.h"
 
 #import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 
@@ -112,7 +111,7 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
     self.floatLabeledTextField.text = self.rowDescriptor.value ? [self.rowDescriptor.value displayText] : self.rowDescriptor.noValueDisplayText;
     [self.floatLabeledTextField setEnabled:!self.rowDescriptor.isDisabled];
     
-    self.floatLabeledTextField.floatingLabelTextColor = [UIColor backgroundColorNavigationLoginMain];
+    self.floatLabeledTextField.floatingLabelTextColor = [UIColor whiteColor];
     
     [self.floatLabeledTextField setAlpha:((self.rowDescriptor.isDisabled) ? .6 : 1)];
     self.floatLabeledTextField.text = self.rowDescriptor.value ? [self.rowDescriptor.value displayText] : self.rowDescriptor.noValueDisplayText;
