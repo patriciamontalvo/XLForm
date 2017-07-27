@@ -104,8 +104,8 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
     
     self.floatLabeledTextField.text = self.rowDescriptor.value ? [self.rowDescriptor.value displayText] : self.rowDescriptor.noValueDisplayText;
     [self.floatLabeledTextField setEnabled:!self.rowDescriptor.isDisabled];
-    
-    self.floatLabeledTextField.floatingLabelTextColor = [UIColor whiteColor];
+    self.floatLabeledTextField.tintColor = self.tintColor;
+    self.floatLabeledTextField.floatingLabelTextColor = self.tintColor;
     
     [self.floatLabeledTextField setAlpha:((self.rowDescriptor.isDisabled) ? .6 : 1)];
     self.floatLabeledTextField.text = self.rowDescriptor.value ? [self.rowDescriptor.value displayText] : self.rowDescriptor.noValueDisplayText;
