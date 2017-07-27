@@ -31,8 +31,8 @@
 #import "NSString+XLFormAdditions.h"
 #import "AutoCompleteTextViewCell.h"
 #import "FloatLabeledTextFieldCell.h"
-
-
+#import "CustomSwitchCell.h"
+#import "CustomSelectionCell.h"
 
 const CGFloat kCGFloatNull = NAN;
 
@@ -256,8 +256,9 @@ const CGFloat kCGFloatNull = NAN;
                                                XLFormRowDescriptorTypeAutoCompleteTextView: [AutoCompleteTextViewCell class],
                                                XLFormRowDescriptorTypeFloatLabeledTextField: [FloatLabeledTextFieldCell class],
                                                XLFormRowDescriptorTypeFloatLabeledEmailField: [FloatLabeledTextFieldCell class],
-                                               XLFormRowDescriptorTypeFloatLabeledPasswordField: [FloatLabeledTextFieldCell class]
-                                               
+                                               XLFormRowDescriptorTypeFloatLabeledPasswordField: [FloatLabeledTextFieldCell class],
+                                               XLFormRowDescriptorTypeCustomSwitchCell:[CustomSwitchCell class],
+                                               XLFormRowDescriptorTypeCustomSelectionCell:[CustomSelectionCell class],
                                                
                                                } mutableCopy];
     });

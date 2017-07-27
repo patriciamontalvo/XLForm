@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.resource = 'XLForm/XLForm.bundle'
   s.dependency 'ARAutocompleteTextView'
   s.dependency 'JVFloatLabeledTextField'
+  s.dependency 'AMPopTip'
 end
