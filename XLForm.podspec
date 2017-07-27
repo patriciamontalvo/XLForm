@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/xmartlabs/XLForm'
   s.authors  = { 'Martin Barreto' => 'martin@xmartlabs.com' }
   s.source   = { :git => 'https://github.com/xmartlabs/XLForm.git', :tag => s.version }
-  s.source_files = 'XLForm/XL/**/*.{h,m}'
+  s.source_files = 'XLForm/XL/**/*.{h,m,xib}'
   s.requires_arc = true
   s.ios.deployment_target = '7.0'
   s.ios.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
