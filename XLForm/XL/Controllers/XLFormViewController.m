@@ -257,8 +257,8 @@ const CGFloat kCGFloatNull = NAN;
                                                XLFormRowDescriptorTypeFloatLabeledTextField: [FloatLabeledTextFieldCell class],
                                                XLFormRowDescriptorTypeFloatLabeledEmailField: [FloatLabeledTextFieldCell class],
                                                XLFormRowDescriptorTypeFloatLabeledPasswordField: [FloatLabeledTextFieldCell class],
-                                               XLFormRowDescriptorTypeCustomSwitchCell:[CustomSwitchCell class],
-                                               XLFormRowDescriptorTypeCustomSelectionCell:[CustomSelectionCell class],
+                                               //XLFormRowDescriptorTypeCustomSwitchCell:[CustomSwitchCell class],
+                                               //XLFormRowDescriptorTypeCustomSelectionCell:[CustomSelectionCell class]
                                                
                                                } mutableCopy];
     });

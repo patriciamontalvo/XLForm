@@ -14,10 +14,17 @@
 
 +(void)load
 {
-    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:@"CustomSwitchCell" forKey:XLFormRowDescriptorTypeCustomSwitchCell];
+     [XLFormViewController.cellClassesForRowDescriptorTypes setObject:@"CustomSwitchCell" forKey:XLFormRowDescriptorTypeCustomSwitchCell];
 }
 
+
 #pragma mark - XLFormDescriptorCell
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self configure];
+}
 
 - (void)configure
 {

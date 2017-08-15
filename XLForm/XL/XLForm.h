@@ -121,7 +121,7 @@ extern NSString * const XLFormRowDescriptorTypeFloatLabeledTextField;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledEmailField;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledPasswordField;
 extern NSString * const XLFormRowDescriptorTypeCustomSwitchCell;
-extern NSString * const XLFormRowDescriptorTypeCustomSelectionCell;
+
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)

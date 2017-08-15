@@ -26,10 +26,9 @@
 #import "XLForm.h"
 #import "XLFormWeekDaysCell.h"
 #import "XLFormRatingCell.h"
-#import "FloatLabeledTextFieldCell.h"
 #import "XLFormCustomCell.h"
 #import "XLFormInlineSegmentedCell.h"
-#import "AutoCompleteTextViewCell.h"
+#import "CustomSelectionCell.h"
 
 static NSString * const kCustomRowFirstRatingTag = @"CustomRowFirstRatingTag";
 static NSString * const kCustomRowSecondRatingTag = @"CustomRowSecondRatingTag";
@@ -38,6 +37,8 @@ static NSString * const kCustomRowAutoCompleteTextFieldTag = @"CustomRowAutoComp
 static NSString * const kCustomRowWeekdays = @"CustomRowWeekdays";
 static NSString * const kCustomInline = @"kCustomInline";
 static NSString * const kCustomRowText = @"kCustomText";
+static NSString * const kchargeservice = @"kchargeservice";
+static NSString * const kSwitch = @"kSwitch";
 
 @implementation CustomRowsViewController
 
@@ -57,7 +58,7 @@ static NSString * const kCustomRowText = @"kCustomText";
     XLFormRowDescriptor * row;
     
     // Section Ratings
-    section = [XLFormSectionDescriptor formSectionWithTitle:@"Ratings"];
+   /* section = [XLFormSectionDescriptor formSectionWithTitle:@"Ratings"];
     [form addFormSection:section];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomRowFirstRatingTag rowType:XLFormRowDescriptorTypeRate title:@"First Rating"];
@@ -67,12 +68,16 @@ static NSString * const kCustomRowText = @"kCustomText";
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomRowSecondRatingTag rowType:XLFormRowDescriptorTypeRate title:@"Second Rating"];
     row.value = @(1);
     [section addFormRow:row];
-    
+    */
     // Section Float Labeled Text Field
     section = [XLFormSectionDescriptor formSectionWithTitle:@"Float Labeled Text Field"];
+    
     [form addFormSection:section];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomRowFloatLabeledTextFieldTag rowType:XLFormRowDescriptorTypeFloatLabeledTextField title:@"Title"];
+    //self.floatLabeledTextField.text
+    [row.cellConfig setObject:[UIColor redColor] forKey:@"floatLabeledTextField.tintColor"];
+    [row.cellConfig setObject:[UIColor redColor] forKey:@"floatLabeledTextField.floatingLabelTextColor"];
     [section addFormRow:row];
     
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomRowFloatLabeledTextFieldTag rowType:XLFormRowDescriptorTypeFloatLabeledTextField title:@"First Name"];
@@ -87,6 +92,30 @@ static NSString * const kCustomRowText = @"kCustomText";
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomRowAutoCompleteTextFieldTag rowType:XLFormRowDescriptorTypeAutoCompleteTextView title:@"AUTOCOMPLETE"];
     row.wordsAutocomplete = @[@"Doctor",@"Fiebre",@"Dolor de Cabeza",@"Vómitos",@"Diarrea", @"Presión Baja",@"Infarto"];
     
+    [section addFormRow:row];
+    
+    section = [XLFormSectionDescriptor formSectionWithTitle:@"CustomSelection"];
+    [form addFormSection:section];
+    
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:kchargeservice rowType:XLFormRowDescriptorTypeCustomSelectionCell title:@"Prueba"];
+    [row.cellConfig setObject:[UIColor redColor] forKey:@"textLabel.textColor"];
+    [section addFormRow:row];
+    
+    section = [XLFormSectionDescriptor formSectionWithTitle:@"CustomSwitch"];
+    [form addFormSection:section];
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:kSwitch rowType:XLFormRowDescriptorTypeCustomSwitchCell title:@"Es una emergencia"];
+    [row.cellConfig setObject:[UIColor greenColor] forKey:@"textLabel.textColor"];
+    row.value = @0;
+    row.onChangeBlock = ^(NSNumber* oldValue,NSNumber* newValue,XLFormRowDescriptor* __nonnull rowDescriptor) {
+        if ( ![oldValue isEqual:[NSNull null]] && ![newValue isEqual:[NSNull null]]) {
+            if (![rowDescriptor.value boolValue]) {
+                [rowDescriptor setTitle:@"Es una emergencia"];
+            }else if ([rowDescriptor.value boolValue]){
+                [rowDescriptor setTitle:@"No es Emergencia"];
+            }
+            [self reloadFormRow:rowDescriptor];
+        }
+    };
     [section addFormRow:row];
     
     // Section Weekdays
@@ -127,5 +156,8 @@ static NSString * const kCustomRowText = @"kCustomText";
     
     self.form = form;
 }
+
+
+
 
 @end

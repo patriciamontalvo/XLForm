@@ -10,12 +10,12 @@
 
 @implementation CustomSelectionCell
 
-
-
+//XLForm.bundle/forwardarrow.png
+NSString * const XLFormRowDescriptorTypeCustomSelectionCell = @"XLFormRowDescriptorTypeCustomSelectionCell";
 
 +(void)load
 {
-    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:@"CustomSelectionCell" forKey:XLFormRowDescriptorTypeCustomSelectionCell];
+    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:@"XLForm.bundle/CustomSelectionCell.xib" forKey:XLFormRowDescriptorTypeCustomSelectionCell];
 }
 
 - (void)configure
@@ -26,7 +26,6 @@
     CGFloat borderWidth = 2.0f;
     
     self.frame = CGRectInset(self.frame, -borderWidth, -borderWidth);
-    /*Se puede agregar color como propiedades*/
     self.selection.layer.borderColor = self.tintColor.CGColor;
     self.selection.layer.borderWidth = borderWidth;
     self.selection.backgroundColor = [UIColor whiteColor];

@@ -38,10 +38,9 @@
 		3C3B01DA1AB7497D0027CD45 /* XLFormWeekDaysCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B01D81AB7497D0027CD45 /* XLFormWeekDaysCell.m */; };
 		3C3B01DB1AB7497D0027CD45 /* XLFormWeekDaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3B01D91AB7497D0027CD45 /* XLFormWeekDaysCell.xib */; };
 		3C3B01E21AB7499A0027CD45 /* XLRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B01E01AB7499A0027CD45 /* XLRatingView.m */; };
-		3C3B01F01AB74BDC0027CD45 /* FloatLabeledTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B01EF1AB74BDC0027CD45 /* FloatLabeledTextFieldCell.m */; };
 		3CDAFC7A1AB0AFA4000F75B6 /* CustomRowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDAFC791AB0AFA4000F75B6 /* CustomRowsViewController.m */; };
-		5BB6B032D80344C9E7D956CD /* libPods-XLForm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19383D268EF8024CB33FCCA4 /* libPods-XLForm.a */; };
 		66B6266E1AE0055100007886 /* DateAndTimeValueTrasformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B6266D1AE0055100007886 /* DateAndTimeValueTrasformer.m */; };
+		A840378E79AEA23BCFEA0417 /* Pods_XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D409A6A6148C4A7F02E73 /* Pods_XLForm.framework */; };
 		BF01E9281C21F0BB00BDE045 /* XLFormInlineSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01E9271C21F0BB00BDE045 /* XLFormInlineSegmentedCell.m */; };
 		BF9DB1D51AE0436600B985E7 /* BlogExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB1D21AE0436600B985E7 /* BlogExampleViewController.m */; };
 		BF9DB1D61AE0436600B985E7 /* PredicateFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB1D41AE0436600B985E7 /* PredicateFormViewController.m */; };
@@ -50,11 +49,10 @@
 		D51B8B2C19126664008C0478 /* XLFormCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D51B8B2B19126664008C0478 /* XLFormCustomCell.m */; };
 		DEA6EF911B57D6CC000F4893 /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA6EF901B57D6CC000F4893 /* HTTPSessionManager.m */; };
 		DEB8235C1AD5529A00AF9FE2 /* FormattersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB8235B1AD5529A00AF9FE2 /* FormattersViewController.m */; };
-		E4633D141EDDEB800079EFE0 /* AutoCompleteTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4633D131EDDEB800079EFE0 /* AutoCompleteTextViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		19383D268EF8024CB33FCCA4 /* libPods-XLForm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XLForm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B6CA0AA78A4EE425893739 /* Pods-XLForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLForm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLForm/Pods-XLForm.debug.xcconfig"; sourceTree = "<group>"; };
 		281E5BE719538F4A006D93C5 /* CLLocationValueTrasformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLLocationValueTrasformer.h; path = Examples/Selectors/CustomSelectors/XLFormRowViewController/CLLocationValueTrasformer.h; sourceTree = "<group>"; };
 		281E5BE819538F4A006D93C5 /* CLLocationValueTrasformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLLocationValueTrasformer.m; path = Examples/Selectors/CustomSelectors/XLFormRowViewController/CLLocationValueTrasformer.m; sourceTree = "<group>"; };
 		282EB27A1AB5FF33004A736F /* AccessoryViewFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessoryViewFormViewController.h; path = Examples/AccessoryViews/AccessoryViewFormViewController.h; sourceTree = "<group>"; };
@@ -110,14 +108,12 @@
 		3C3B01D91AB7497D0027CD45 /* XLFormWeekDaysCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XLFormWeekDaysCell.xib; path = Examples/CustomRows/Weekdays/XLFormWeekDaysCell.xib; sourceTree = "<group>"; };
 		3C3B01DE1AB7499A0027CD45 /* XLRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XLRatingView.h; path = Examples/CustomRows/Rating/RatingView/XLRatingView.h; sourceTree = "<group>"; };
 		3C3B01E01AB7499A0027CD45 /* XLRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XLRatingView.m; path = Examples/CustomRows/Rating/RatingView/XLRatingView.m; sourceTree = "<group>"; };
-		3C3B01EE1AB74BDC0027CD45 /* FloatLabeledTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloatLabeledTextFieldCell.h; path = Examples/CustomRows/FloatLabeledTextField/FloatLabeledTextFieldCell.h; sourceTree = "<group>"; };
-		3C3B01EF1AB74BDC0027CD45 /* FloatLabeledTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloatLabeledTextFieldCell.m; path = Examples/CustomRows/FloatLabeledTextField/FloatLabeledTextFieldCell.m; sourceTree = "<group>"; };
 		3CDAFC781AB0AFA4000F75B6 /* CustomRowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomRowsViewController.h; path = Examples/CustomRows/CustomRowsViewController.h; sourceTree = "<group>"; };
 		3CDAFC791AB0AFA4000F75B6 /* CustomRowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomRowsViewController.m; path = Examples/CustomRows/CustomRowsViewController.m; sourceTree = "<group>"; };
-		5F6FC67A75254B60005DC716 /* Pods-XLForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLForm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLForm/Pods-XLForm.debug.xcconfig"; sourceTree = "<group>"; };
 		66B6266C1AE0055100007886 /* DateAndTimeValueTrasformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateAndTimeValueTrasformer.h; path = Examples/Dates/DateAndTimeValueTrasformer.h; sourceTree = "<group>"; };
 		66B6266D1AE0055100007886 /* DateAndTimeValueTrasformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateAndTimeValueTrasformer.m; path = Examples/Dates/DateAndTimeValueTrasformer.m; sourceTree = "<group>"; };
-		B98C1213E7C714A861219C81 /* Pods-XLForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLForm.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLForm/Pods-XLForm.release.xcconfig"; sourceTree = "<group>"; };
+		6F3D409A6A6148C4A7F02E73 /* Pods_XLForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XLForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		971ED265F52B90CCFB04E415 /* Pods-XLForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLForm.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLForm/Pods-XLForm.release.xcconfig"; sourceTree = "<group>"; };
 		BF01E9261C21F0BB00BDE045 /* XLFormInlineSegmentedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XLFormInlineSegmentedCell.h; path = "Inline Segmented/XLFormInlineSegmentedCell.h"; sourceTree = "<group>"; };
 		BF01E9271C21F0BB00BDE045 /* XLFormInlineSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XLFormInlineSegmentedCell.m; path = "Inline Segmented/XLFormInlineSegmentedCell.m"; sourceTree = "<group>"; };
 		BF9DB1D11AE0436600B985E7 /* BlogExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlogExampleViewController.h; path = Examples/PredicateExamples/BlogExampleViewController.h; sourceTree = SOURCE_ROOT; };
@@ -132,8 +128,6 @@
 		DEA6EF901B57D6CC000F4893 /* HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPSessionManager.m; path = Examples/Selectors/HTTPSessionManager.m; sourceTree = "<group>"; };
 		DEB8235A1AD5529A00AF9FE2 /* FormattersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormattersViewController.h; sourceTree = "<group>"; };
 		DEB8235B1AD5529A00AF9FE2 /* FormattersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormattersViewController.m; sourceTree = "<group>"; };
-		E4633D121EDDEB800079EFE0 /* AutoCompleteTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCompleteTextViewCell.h; sourceTree = "<group>"; };
-		E4633D131EDDEB800079EFE0 /* AutoCompleteTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCompleteTextViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,13 +139,22 @@
 				2850C5FE18D0F706002B7D0A /* CoreGraphics.framework in Frameworks */,
 				2850C60018D0F706002B7D0A /* UIKit.framework in Frameworks */,
 				2850C5FC18D0F706002B7D0A /* Foundation.framework in Frameworks */,
-				5BB6B032D80344C9E7D956CD /* libPods-XLForm.a in Frameworks */,
+				A840378E79AEA23BCFEA0417 /* Pods_XLForm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F5346EAF65E1B782B143A41 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24B6CA0AA78A4EE425893739 /* Pods-XLForm.debug.xcconfig */,
+				971ED265F52B90CCFB04E415 /* Pods-XLForm.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		282C5EEF18D33C1800A5D47C /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,7 +261,7 @@
 				2850C60118D0F706002B7D0A /* XLForm */,
 				2850C5FA18D0F706002B7D0A /* Frameworks */,
 				2850C5F918D0F706002B7D0A /* Products */,
-				B6478577DDCB0DDDD433C572 /* Pods */,
+				0F5346EAF65E1B782B143A41 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,7 +280,7 @@
 				2850C5FB18D0F706002B7D0A /* Foundation.framework */,
 				2850C5FD18D0F706002B7D0A /* CoreGraphics.framework */,
 				2850C5FF18D0F706002B7D0A /* UIKit.framework */,
-				19383D268EF8024CB33FCCA4 /* libPods-XLForm.a */,
+				6F3D409A6A6148C4A7F02E73 /* Pods_XLForm.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -408,8 +411,6 @@
 		3C3B01E31AB74AC10027CD45 /* FloatLabeledTextField */ = {
 			isa = PBXGroup;
 			children = (
-				3C3B01EE1AB74BDC0027CD45 /* FloatLabeledTextFieldCell.h */,
-				3C3B01EF1AB74BDC0027CD45 /* FloatLabeledTextFieldCell.m */,
 			);
 			name = FloatLabeledTextField;
 			sourceTree = "<group>";
@@ -426,15 +427,6 @@
 				3CDAFC791AB0AFA4000F75B6 /* CustomRowsViewController.m */,
 			);
 			name = CustomRows;
-			sourceTree = "<group>";
-		};
-		B6478577DDCB0DDDD433C572 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5F6FC67A75254B60005DC716 /* Pods-XLForm.debug.xcconfig */,
-				B98C1213E7C714A861219C81 /* Pods-XLForm.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		BF01E9251C21F02D00BDE045 /* Inline Segmented */ = {
@@ -482,8 +474,6 @@
 		E4633D111EDDEAF60079EFE0 /* AutoComplete */ = {
 			isa = PBXGroup;
 			children = (
-				E4633D121EDDEB800079EFE0 /* AutoCompleteTextViewCell.h */,
-				E4633D131EDDEB800079EFE0 /* AutoCompleteTextViewCell.m */,
 			);
 			name = AutoComplete;
 			sourceTree = "<group>";
@@ -495,12 +485,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2850C62418D0F707002B7D0A /* Build configuration list for PBXNativeTarget "XLForm" */;
 			buildPhases = (
-				EBE0335CCC7588D83B89A92A /* [CP] Check Pods Manifest.lock */,
+				1316D2ECA8BB2EC4369417D7 /* [CP] Check Pods Manifest.lock */,
 				2850C5F418D0F706002B7D0A /* Sources */,
 				2850C5F518D0F706002B7D0A /* Frameworks */,
 				2850C5F618D0F706002B7D0A /* Resources */,
-				32EB30E0A90A4E91864B1D3C /* [CP] Embed Pods Frameworks */,
-				DE3D12F5596780A66C6C3D4A /* [CP] Copy Pods Resources */,
+				84D21B1B07C39196858CBACB /* [CP] Embed Pods Frameworks */,
+				7B38B9A506D366929E77938F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -555,22 +545,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32EB30E0A90A4E91864B1D3C /* [CP] Embed Pods Frameworks */ = {
+		1316D2ECA8BB2EC4369417D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLForm/Pods-XLForm-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DE3D12F5596780A66C6C3D4A /* [CP] Copy Pods Resources */ = {
+		7B38B9A506D366929E77938F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -585,19 +575,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLForm/Pods-XLForm-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBE0335CCC7588D83B89A92A /* [CP] Check Pods Manifest.lock */ = {
+		84D21B1B07C39196858CBACB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLForm/Pods-XLForm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -614,9 +604,7 @@
 				282EB27C1AB5FF33004A736F /* AccessoryViewFormViewController.m in Sources */,
 				BF9DB1D51AE0436600B985E7 /* BlogExampleViewController.m in Sources */,
 				2850C60818D0F706002B7D0A /* main.m in Sources */,
-				E4633D141EDDEB800079EFE0 /* AutoCompleteTextViewCell.m in Sources */,
 				D51B8B2C19126664008C0478 /* XLFormCustomCell.m in Sources */,
-				3C3B01F01AB74BDC0027CD45 /* FloatLabeledTextFieldCell.m in Sources */,
 				28DBB04118D76FDC00FB8A8B /* MultivaluedFormViewController.m in Sources */,
 				28A85D5918E346C100E81A26 /* XLFormImageSelectorCell.m in Sources */,
 				28468E9818EC686500DBB015 /* NativeEventFormViewController.m in Sources */,
@@ -737,7 +725,7 @@
 		};
 		2850C62518D0F707002B7D0A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F6FC67A75254B60005DC716 /* Pods-XLForm.debug.xcconfig */;
+			baseConfigurationReference = 24B6CA0AA78A4EE425893739 /* Pods-XLForm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -754,7 +742,7 @@
 		};
 		2850C62618D0F707002B7D0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B98C1213E7C714A861219C81 /* Pods-XLForm.release.xcconfig */;
+			baseConfigurationReference = 971ED265F52B90CCFB04E415 /* Pods-XLForm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

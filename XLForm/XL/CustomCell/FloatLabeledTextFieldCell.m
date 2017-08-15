@@ -185,6 +185,9 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     [self textFieldDidChange:textField];
     [self.formViewController textFieldDidEndEditing:textField];
+    if (self.rowDescriptor.onEndEditingBlock) {
+        self.rowDescriptor.onEndEditingBlock(self.rowDescriptor);
+    }
 }
 
 -(void)setReturnKeyType:(UIReturnKeyType)returnKeyType{
