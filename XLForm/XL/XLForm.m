@@ -72,5 +72,8 @@ NSString * const XLFormRowDescriptorTypeAutoCompleteTextView = @"XLFormRowDescri
 NSString * const XLFormRowDescriptorTypeFloatLabeledTextField = @"XLFormRowDescriptorTypeFloatLabeledTextField";
 NSString * const XLFormRowDescriptorTypeFloatLabeledEmailField = @"XLFormRowDescriptorTypeFloatLabeledEmailField";
 NSString * const XLFormRowDescriptorTypeFloatLabeledPasswordField = @"XLFormRowDescriptorTypeFloatLabeledPasswordFiel";
+NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCard = @"XLFormRowDescriptorTypeFloatLabeledCreditCard";
+NSString * const XLFormRowDescriptorTypeFloatLabeledInteger = @"XLFormRowDescriptorTypeFloatLabeledInteger";
+NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate = @"XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate";
 NSString * const XLFormRowDescriptorTypeCustomSwitchCell = @"XLFormRowDescriptorTypeCustomSwitchCell";
 

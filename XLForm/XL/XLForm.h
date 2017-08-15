@@ -120,6 +120,10 @@ extern NSString * const XLFormRowDescriptorTypeAutoCompleteTextView;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledTextField;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledEmailField;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledPasswordField;
+extern NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCard;
+extern NSString * const XLFormRowDescriptorTypeFloatLabeledInteger;
+extern NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate;
+
 extern NSString * const XLFormRowDescriptorTypeCustomSwitchCell;
 
 

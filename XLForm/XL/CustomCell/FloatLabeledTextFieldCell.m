@@ -39,11 +39,22 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
 
 @synthesize floatLabeledTextField =_floatLabeledTextField;
 
+/*
+ extern NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCard;
+ extern NSString * const XLFormRowDescriptorTypeFloatLabeledInteger;
+ extern NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate;
+ */
+
 +(void)load
 {
     [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey:XLFormRowDescriptorTypeFloatLabeledTextField];
     [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey: XLFormRowDescriptorTypeFloatLabeledEmailField];
     [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey:XLFormRowDescriptorTypeFloatLabeledPasswordField];
+    
+    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey:XLFormRowDescriptorTypeFloatLabeledCreditCard];
+    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey:XLFormRowDescriptorTypeFloatLabeledInteger];
+    [XLFormViewController.cellClassesForRowDescriptorTypes setObject:[FloatLabeledTextFieldCell class] forKey:XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate];
+    
     
 }
 
@@ -54,7 +65,7 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
     _floatLabeledTextField = [JVFloatLabeledTextField autolayoutView];
     _floatLabeledTextField.font = [UIFont systemFontOfSize:kJLabelFontSize];
     _floatLabeledTextField.floatingLabel.font = [UIFont boldSystemFontOfSize:kFloatingLabelFontSize];
-
+    
     _floatLabeledTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     [_floatLabeledTextField setAdjustsFontSizeToFitWidth:YES];
@@ -81,7 +92,7 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
     self.floatLabeledTextField.attributedPlaceholder =
     [[NSAttributedString alloc] initWithString:self.rowDescriptor.title
                                     attributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-   
+    
     
     if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeFloatLabeledTextField]){
         self.floatLabeledTextField.autocorrectionType = UITextAutocorrectionTypeDefault;
@@ -100,7 +111,23 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
         self.floatLabeledTextField.keyboardType = UIKeyboardTypeASCIICapable;
         self.floatLabeledTextField.secureTextEntry = YES;
     }
-
+    else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeFloatLabeledInteger]){
+        self.floatLabeledTextField.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeFloatLabeledCreditCard]){
+        self.floatLabeledTextField.keyboardType = UIKeyboardTypeNumberPad;
+        self.floatLabeledTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.floatLabeledTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.rowDescriptor.maxLength = 19;
+    }
+    else if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate]){
+        self.floatLabeledTextField.keyboardType = UIKeyboardTypeNumberPad;
+        self.floatLabeledTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.floatLabeledTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.rowDescriptor.maxLength = 5;
+    }
+    
+    
     
     self.floatLabeledTextField.text = self.rowDescriptor.value ? [self.rowDescriptor.value displayText] : self.rowDescriptor.noValueDisplayText;
     [self.floatLabeledTextField setEnabled:!self.rowDescriptor.isDisabled];
@@ -172,9 +199,28 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
     return [self.formViewController textFieldShouldEndEditing:textField];
 }
 
+/*
+ - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+ return [self.formViewController textField:textField shouldChangeCharactersInRange:range replacementString:string];
+ }
+ */
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (self.rowDescriptor.maxLength > 0) {
+        // Prevent crashing undo bug – see note below.
+        if (range.length + range.location > textField.text.length)
+        {
+            return NO;
+        }
+        
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength < self.rowDescriptor.maxLength + 1) ? YES : NO;
+    }
+    
     return [self.formViewController textField:textField shouldChangeCharactersInRange:range replacementString:string];
 }
+
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     
@@ -207,18 +253,18 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
 -(NSArray *)layoutConstraints
 {
     NSMutableArray * result = [[NSMutableArray alloc] init];
-
+    
     NSDictionary * views = @{@"floatLabeledTextField": self.floatLabeledTextField};
     NSDictionary *metrics = @{@"vMargin":@(kVMargin)};
     
     [result addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[floatLabeledTextField]-|"
-                                                                                               options:0
-                                                                                               metrics:metrics
-                                                                                                 views:views]];
+                                                                        options:0
+                                                                        metrics:metrics
+                                                                          views:views]];
     [result addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(vMargin)-[floatLabeledTextField]-(vMargin)-|"
-                                                                                               options:0
-                                                                                               metrics:metrics
-                                                                                                 views:views]];
+                                                                        options:0
+                                                                        metrics:metrics
+                                                                          views:views]];
     return result;
 }
 
@@ -228,16 +274,71 @@ const static CGFloat kFloatingLabelFontSizeMin = 10.0f;
 {
     if (self.floatLabeledTextField == textField) {
         if ([self.floatLabeledTextField.text length] > 0) {
-           /* CGFloat requiredFontSize = [self requiredFontSize];
-            if( self.floatLabeledTextField.font.pointSize != requiredFontSize ){
-                self.floatLabeledTextField.font = [self.floatLabeledTextField.font fontWithSize:requiredFontSize];
-            }*/
+            /* CGFloat requiredFontSize = [self requiredFontSize];
+             if( self.floatLabeledTextField.font.pointSize != requiredFontSize ){
+             self.floatLabeledTextField.font = [self.floatLabeledTextField.font fontWithSize:requiredFontSize];
+             }*/
             self.rowDescriptor.value = self.floatLabeledTextField.text;
         } else {
             self.rowDescriptor.value = nil;
         }
     }
+    
+    
+    
+    
+    if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeFloatLabeledCreditCard]) {
+        NSString *formattedText = [self formatCreditCard:self.floatLabeledTextField.text];
+        if (![formattedText isEqualToString:self.floatLabeledTextField.text]) {
+            self.floatLabeledTextField.text = formattedText;
+        }
+    }
+    
+    if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate]) {
+        NSString *formattedText = [self formatCreditCardExpiry:self.floatLabeledTextField.text];
+        if (![formattedText isEqualToString:self.floatLabeledTextField.text]) {
+            self.floatLabeledTextField.text = formattedText;
+        }
+    }
+    
+    
 }
+
+- (NSString *)formatCreditCard:(NSString *)text
+{
+    static NSString *previousText = @"";
+    
+    if (text.length == 4 || text.length == 9 || text.length == 14) {
+        if (previousText.length < text.length) {
+            text = [NSString stringWithFormat:@"%@ ", text];
+        } /*else {
+           text = [text substringToIndex:1];
+           }*/
+    }
+    
+    previousText = text;
+    
+    return text;
+}
+
+
+- (NSString *)formatCreditCardExpiry:(NSString *)text
+{
+    static NSString *previousText = @"";
+    
+    if (text.length == 2) {
+        if (previousText.length < text.length) {
+            text = [NSString stringWithFormat:@"%@/", text];
+        } else {
+            text = [text substringToIndex:1];
+        }
+    }
+    
+    previousText = text;
+    
+    return text;
+}
+
 
 
 

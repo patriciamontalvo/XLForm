@@ -167,12 +167,12 @@ const CGFloat kCGFloatNull = NAN;
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-
+    
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -208,7 +208,7 @@ const CGFloat kCGFloatNull = NAN;
 +(NSMutableDictionary *)cellClassesForRowDescriptorTypes
 {
     static NSMutableDictionary * _cellClassesForRowDescriptorTypes;
-
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _cellClassesForRowDescriptorTypes = [@{XLFormRowDescriptorTypeText:[XLFormTextFieldCell class],
@@ -257,6 +257,10 @@ const CGFloat kCGFloatNull = NAN;
                                                XLFormRowDescriptorTypeFloatLabeledTextField: [FloatLabeledTextFieldCell class],
                                                XLFormRowDescriptorTypeFloatLabeledEmailField: [FloatLabeledTextFieldCell class],
                                                XLFormRowDescriptorTypeFloatLabeledPasswordField: [FloatLabeledTextFieldCell class],
+                                               XLFormRowDescriptorTypeFloatLabeledCreditCard: [FloatLabeledTextFieldCell class],
+                                               XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate: [FloatLabeledTextFieldCell class],
+                                               XLFormRowDescriptorTypeFloatLabeledInteger: [FloatLabeledTextFieldCell class],
+                                               
                                                //XLFormRowDescriptorTypeCustomSwitchCell:[CustomSwitchCell class],
                                                //XLFormRowDescriptorTypeCustomSelectionCell:[CustomSelectionCell class]
                                                
@@ -270,7 +274,7 @@ const CGFloat kCGFloatNull = NAN;
 +(NSMutableDictionary *)inlineRowDescriptorTypesForRowDescriptorTypes
 {
     static NSMutableDictionary * _inlineRowDescriptorTypesForRowDescriptorTypes;
-
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _inlineRowDescriptorTypesForRowDescriptorTypes = [
@@ -414,9 +418,9 @@ const CGFloat kCGFloatNull = NAN;
         return nil;
     }
     XLFormRowDescriptor * previousRow = [self nextRowDescriptorForRow:rowDescriptor
-                                                            withDirection:XLFormRowNavigationDirectionPrevious];
+                                                        withDirection:XLFormRowNavigationDirectionPrevious];
     XLFormRowDescriptor * nextRow     = [self nextRowDescriptorForRow:rowDescriptor
-                                                            withDirection:XLFormRowNavigationDirectionNext];
+                                                        withDirection:XLFormRowNavigationDirectionNext];
     [self.navigationAccessoryView.previousButton setEnabled:(previousRow != nil)];
     [self.navigationAccessoryView.nextButton setEnabled:(nextRow != nil)];
     return self.navigationAccessoryView;
@@ -433,7 +437,7 @@ const CGFloat kCGFloatNull = NAN;
     if (rowDescriptor.onEndEditingBlock) {
         rowDescriptor.onEndEditingBlock(rowDescriptor);
     }
-
+    
 }
 
 -(XLFormRowDescriptor *)formRowFormMultivaluedFormSection:(XLFormSectionDescriptor *)formSection
@@ -688,7 +692,7 @@ const CGFloat kCGFloatNull = NAN;
         self.tableView.editing = !self.tableView.editing;
         self.tableView.editing = !self.tableView.editing;
     });
-
+    
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -698,7 +702,7 @@ const CGFloat kCGFloatNull = NAN;
         // end editing
         UIView * firstResponder = [[multivaluedFormRow cellForFormController:self] findFirstResponder];
         if (firstResponder){
-                [self.tableView endEditing:YES];
+            [self.tableView endEditing:YES];
         }
         [multivaluedFormRow.sectionDescriptor removeFormRowAtIndex:indexPath.row];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -712,7 +716,7 @@ const CGFloat kCGFloatNull = NAN;
         }
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert){
-
+        
         XLFormSectionDescriptor * multivaluedFormSection = [self.form formSectionAtIndex:indexPath.section];
         if (multivaluedFormSection.sectionInsertMode == XLFormSectionInsertModeButton && multivaluedFormSection.sectionOptions & XLFormSectionOptionCanInsert){
             [self multivaluedInsertButtonTapped:multivaluedFormSection.multivaluedAddButton];
@@ -868,7 +872,7 @@ const CGFloat kCGFloatNull = NAN;
             return [NSIndexPath indexPathForRow:proposedDestinationIndexPath.row - 1 inSection:sourceIndexPath.section];
         }
     }
-
+    
     if ((sectionDescriptor.sectionInsertMode == XLFormSectionInsertModeButton && sectionDescriptor.sectionOptions & XLFormSectionOptionCanInsert)){
         if (proposedDestinationIndexPath.row == sectionDescriptor.formRows.count - 1){
             return [NSIndexPath indexPathForRow:(sectionDescriptor.formRows.count - 2) inSection:sourceIndexPath.section];
@@ -972,7 +976,7 @@ const CGFloat kCGFloatNull = NAN;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-	return YES;
+    return YES;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -983,7 +987,7 @@ const CGFloat kCGFloatNull = NAN;
     if (NO == self.form.endEditingTableViewOnScroll) {
         return;
     }
-
+    
     UIView * firstResponder = [self.tableView findFirstResponder];
     if ([firstResponder conformsToProtocol:@protocol(XLFormDescriptorCell)]){
         id<XLFormDescriptorCell> cell = (id<XLFormDescriptorCell>)firstResponder;

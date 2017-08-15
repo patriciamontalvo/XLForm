@@ -28,6 +28,10 @@ extern NSString * const XLFormRowDescriptorTypeFloatLabeledTextField;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledEmailField;
 extern NSString * const XLFormRowDescriptorTypeFloatLabeledPasswordField;
 
+extern NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCard;
+extern NSString * const XLFormRowDescriptorTypeFloatLabeledInteger;
+extern NSString * const XLFormRowDescriptorTypeFloatLabeledCreditCardExpiryDate;
+
 @interface FloatLabeledTextFieldCell : XLFormBaseCell
 
 @end
